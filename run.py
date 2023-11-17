@@ -20,3 +20,18 @@ def is_valid_guess(guess, valid_words):
     Checks if the guess is valid.
     """
     return guess.isalpha() and len(guess) == 5 and guess in valid_words
+
+
+def evaluate_guess(guess, secret_word):
+    """
+    Evaluates the guess against the secret word, providing feedback.
+    """
+    feedback = []
+    for i in range(5):
+        if guess[i] == secret_word[i]:
+            feedback.append(f"(✓){guess[i]}")
+        elif guess[i] in secret_word:
+            feedback.append(f"(?) {guess[i]}")
+        else:
+            feedback.append(f"(✗) {guess[i]}")
+    return ' '.join(feedback)
