@@ -73,4 +73,6 @@ def main():
         print("Game cannot start without word lists.")
 
 
+if __name__ == "__main__":
+    main()
 
