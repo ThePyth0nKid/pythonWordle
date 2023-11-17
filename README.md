@@ -107,7 +107,7 @@ Run main.py from your Python interpreter to start the game.
 
 I would like to extend my heartfelt gratitude to several individuals and groups who played a pivotal role in the realization of this project.
 
-Firstly, a special thanks to the YouTube channel [Code Entropy](https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg) for being a source of inspiration and providing valuable code snippets that greatly influenced my approach to this project. The insights and ideas presented on this channel were instrumental in shaping the development of this Python Wordle game.
+Firstly, a special thanks to the YouTube channel [Code Entropy](https://www.youtube.com/@Code_Entropy) for being a source of inspiration and providing valuable code snippets that greatly influenced my approach to this project. The insights and ideas presented on this channel were instrumental in shaping the development of this Python Wordle game.
 
 I also want to express my sincere appreciation to everyone at the Code Institute. The unwavering support and guidance from the faculty and staff have been remarkable. Their expertise and encouragement have been crucial in my journey as a Full-Stack Software Development student and have significantly contributed to my growth and learning.
 
