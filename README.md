@@ -50,3 +50,16 @@ def is_valid_guess(guess, valid_words):
 ```
 ### `evaluate_guess(guess, secret_word)`
 This function evaluates the player's guess against the secret word, providing letter-by-letter feedback. It indicates whether each letter in the guess is correct and in the right position, correct but in the wrong position, or not in the word at all.
+
+```python
+def evaluate_guess(guess, secret_word):
+    feedback = []
+    for i in range(5):
+        if guess[i] == secret_word[i]:
+            feedback.append(f"(✓){guess[i]}")
+        elif guess[i] in secret_word:
+            feedback.append(f"(?) {guess[i]}")
+        else:
+            feedback.append(f"(✗) {guess[i]}")
+    return ' '.join(feedback)
+```
