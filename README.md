@@ -97,5 +97,9 @@ def main():
     else:
         print("Game cannot start without word lists.")
 ```
+### Installation
+Clone the repository or download the files and store them in your preferred directory.
 
+### Starting the Game
+Run main.py from your Python interpreter to start the game.
 
