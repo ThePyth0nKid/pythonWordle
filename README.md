@@ -85,5 +85,17 @@ def play_wordle(valid_words, answer_words):
     if input("Play again? (y/n): ").lower() == 'y':
         play_wordle(valid_words, answer_words)
 ```
+### `main()`
+The main function that loads the word lists and initiates the game if the lists are present. This function serves as the entry point of the game.
+
+```python
+def main():
+    valid_words = load_dictionary("valid_words.txt")
+    answer_words = load_dictionary("answer_words.txt")
+    if valid_words and answer_words:
+        play_wordle(valid_words, answer_words)
+    else:
+        print("Game cannot start without word lists.")
+```
 
 
