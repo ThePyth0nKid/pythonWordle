@@ -36,3 +36,10 @@ def load_dictionary(file_path):
 
 ### `is_valid_guess(guess, valid_words)`
 This function checks if the player's guess is valid. A valid guess is a five-letter alphabetical word that exists in the list of valid words.
+
+```python
+def is_valid_guess(guess, valid_words):
+    return guess.isalpha() and len(guess) == 5 and guess in valid_words
+```
+### `evaluate_guess(guess, secret_word)`
+This function evaluates the player's guess against the secret word, providing letter-by-letter feedback. It indicates whether each letter in the guess is correct and in the right position, correct but in the wrong position, or not in the word at all.
