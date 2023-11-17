@@ -63,3 +63,27 @@ def evaluate_guess(guess, secret_word):
             feedback.append(f"(✗) {guess[i]}")
     return ' '.join(feedback)
 ```
+### `play_wordle(valid_words, answer_words)`
+The main game loop. It randomly selects a secret word and processes player inputs, providing feedback and checking for the end of the game.
+
+```python
+def play_wordle(valid_words, answer_words):
+    secret_word = random.choice(answer_words)
+    attempts = 0
+    while attempts < 6:
+        guess = input(f"Enter guess #{attempts+1}: ").lower()
+        if not is_valid_guess(guess, valid_words):
+            print("Invalid guess. Try a different 5-letter word.")
+            continue
+        print(evaluate_guess(guess, secret_word))
+        if guess == secret_word:
+            print("Congratulations! You've guessed the word correctly!")
+            break
+        attempts += 1
+    if attempts == 6:
+        print(f"Game Over. The secret word was: {secret_word}")
+    if input("Play again? (y/n): ").lower() == 'y':
+        play_wordle(valid_words, answer_words)
+```
+
+
