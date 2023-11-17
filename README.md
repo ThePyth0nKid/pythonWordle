@@ -1,32 +1,25 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Python Wordle Project
 
-Welcome,
+## Project Overview
+The Python Wordle Project is an implementation of the popular word-guessing game Wordle in Python. It aims to provide users with a fun and interactive gameplay experience where they guess a randomly selected 5-letter word within six attempts.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+## Game Rules
+- Players have 6 attempts to guess the word.
+- Each guess must be a valid English word with 5 letters.
+- Feedback for each guess:
+  - ✓: Correct letter in the correct position
+  - ?: Correct letter in the wrong position
+  - ✗: Incorrect letter
+- The game ends if the word is not guessed within 6 attempts.
 
-## Reminders
+## Setup
+Ensure the `valid_words.txt` and `answer_words.txt` files are in the same directory as `main.py`.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## Dependencies
+- Python 3.x
 
-## Creating the Heroku app
+## Key Code Functions
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### `load_dictionary(file_path)`
+This function loads a list of words from a specified text file. It handles file-not-found errors and cases where the file is empty, returning an empty list in such cases. This function is crucial for reading both `valid_words.txt` and `answer_words.txt`.
 
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
