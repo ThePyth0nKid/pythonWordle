@@ -13,4 +13,10 @@ def load_dictionary(file_path):
     except FileNotFoundError:
         print(f"Error: The file {file_path} was not found.")
         return []
-        
+
+
+def is_valid_guess(guess, valid_words):
+    """
+    Checks if the guess is valid.
+    """
+    return guess.isalpha() and len(guess) == 5 and guess in valid_words
