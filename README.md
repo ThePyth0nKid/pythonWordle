@@ -23,3 +23,16 @@ Ensure the `valid_words.txt` and `answer_words.txt` files are in the same direct
 ### `load_dictionary(file_path)`
 This function loads a list of words from a specified text file. It handles file-not-found errors and cases where the file is empty, returning an empty list in such cases. This function is crucial for reading both `valid_words.txt` and `answer_words.txt`.
 
+```python
+def load_dictionary(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            words = [line.strip().lower() for line in file if line.strip()]
+        return words
+    except FileNotFoundError:
+        print(f"Error: The file {file_path} was not found.")
+        return []
+```
+
+### `is_valid_guess(guess, valid_words)`
+This function checks if the player's guess is valid. A valid guess is a five-letter alphabetical word that exists in the list of valid words.
