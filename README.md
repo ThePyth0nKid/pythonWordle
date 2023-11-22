@@ -27,6 +27,27 @@ Ensure the `valid_words.txt` and `answer_words.txt` files are in the same direct
 
 ## Key Code Functions
 
+### `display_welcome_message()`
+This function displays a welcome message at the beginning of the game. It explains the rules of Wordle, making sure players understand how to play before they start guessing. The message includes:
+- The number of attempts players have (6 attempts).
+- The requirement for the guess (a valid 5-letter English word).
+- The feedback system for each guess:
+  - (✓): Correct letter in the correct position.
+  - (?): Correct letter in the wrong position.
+  - (✗): Incorrect letter.
+
+### Example Usage
+```python
+def main():
+    valid_words = load_dictionary("valid_words.txt")
+    answer_words = load_dictionary("answer_words.txt")
+    if valid_words and answer_words:
+        display_welcome_message()  # Display the welcome message
+        play_wordle(valid_words, answer_words)
+    else:
+        print("Game cannot start without word lists.")
+```
+
 ### `load_dictionary(file_path)`
 This function loads a list of words from a specified text file. It handles file-not-found errors and cases where the file is empty, returning an empty list in such cases. This function is crucial for reading both `valid_words.txt` and `answer_words.txt`.
 
