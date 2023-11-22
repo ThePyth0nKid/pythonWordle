@@ -1,5 +1,7 @@
 # Python Wordle Project
 
+[Play Python Wordle on Heroku](https://pythonwordle-abbb4f5d58ef.herokuapp.com/)
+
 ## Introduction
 This project represents my third portfolio project as a Full-Stack Software Development student at the Code Institute. My journey to this particular project began with a phase of research and inspiration-seeking on YouTube. It was there that I stumbled upon the fascinating concept of the Wordle game. Intrigued by its simplicity and challenge, I decided to implement my own version of it.
 
