@@ -118,6 +118,34 @@ def main():
     else:
         print("Game cannot start without word lists.")
 ```
+
+# Data Model
+
+## Overview
+The Python Wordle game utilizes a simple yet effective data model to facilitate the gameplay. The data model primarily revolves around the management of word lists and the tracking of game state.
+
+### Word Lists
+The game uses two main types of word lists:
+- **Valid Words (`valid_words.txt`)**: This list contains a comprehensive collection of valid 5-letter English words. It is used to validate the player's guesses.
+- **Answer Words (`answer_words.txt`)**: A subset of the valid words, this list contains the words that can be chosen as the secret word for each game.
+
+These lists are loaded into the game using the `load_dictionary(file_path)` function, which reads the words from text files and stores them in Python lists for easy access during gameplay.
+
+### Game State
+The game state is managed within the `play_wordle(valid_words, answer_words)` function and includes the following key elements:
+- **Secret Word**: A randomly selected word from the answer words list, which players try to guess.
+- **Attempts**: The number of guesses made by the player (limited to 6).
+- **Guess Validation**: Each guess is validated against the valid words list using the `is_valid_guess(guess, valid_words)` function.
+- **Feedback**: After each guess, feedback is provided to the player using the `evaluate_guess(guess, secret_word)` function, indicating the accuracy of each letter in the guess.
+
+### Player Interaction
+Player interaction is handled through the console, where players input their guesses. The game provides real-time feedback and guides the player through the guessing process.
+
+## Implementation
+The data model is implemented in Python, leveraging basic data structures like lists for storing and managing words. The simplicity of the model ensures fast and efficient gameplay, making the game suitable for running in a command-line interface.
+
+This straightforward approach to data modeling aligns well with the nature of the game, emphasizing functionality and player experience.
+
 # Deployment
 
 ## Heroku Deployment
