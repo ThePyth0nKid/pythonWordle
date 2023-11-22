@@ -146,6 +146,84 @@ The data model is implemented in Python, leveraging basic data structures like l
 
 This straightforward approach to data modeling aligns well with the nature of the game, emphasizing functionality and player experience.
 
+# Testing
+
+## Overview
+Thorough testing has been conducted to ensure the reliability and efficiency of the Python Wordle game. The primary focus was on code quality and adherence to coding standards, especially those outlined in PEP 8, the Python style guide.
+
+### CI Python Linter
+To maintain high-quality code, the project was rigorously tested using the [CI Python Linter](https://pep8ci.herokuapp.com/). This tool was instrumental in ensuring that the code adheres to the conventions and style guidelines of PEP 8.
+
+#### Process
+- The source code was submitted to the CI Python Linter.
+- The linter analyzed the code for any issues that deviate from PEP 8 standards.
+- Each issue was meticulously reviewed and resolved to ensure compliance with PEP 8 guidelines.
+
+### Benefits
+Using the CI Python Linter provided several benefits:
+- **Code Quality**: Improved the overall quality of the codebase, making it more readable and maintainable.
+- **Consistency**: Ensured consistent coding style throughout the project.
+- **Best Practices**: Encouraged the use of Python best practices, enhancing the robustness of the application.
+
+## Manual Testing
+In addition to automated linting, manual testing was performed to cover various aspects of the game:
+- **Functionality**: Each function, including word loading, input validation, and feedback generation, was tested to ensure correct operation.
+- **Game Logic**: The game logic was tested to confirm that the game follows the intended flow and rules.
+- **User Interaction**: The game's response to different types of user input (valid/invalid guesses) was thoroughly tested.
+
+### Test Cases
+Example test cases included:
+- Entering valid and invalid guesses.
+- Guessing the secret word within the allowed attempts.
+- Exceeding the maximum number of attempts without guessing the word.
+- Testing edge cases and unusual input scenarios.
+
+Through this comprehensive testing approach, both through the CI Python Linter and manual testing, the Python Wordle game has been refined to provide an engaging and error-free user experience.
+
+# Bugs and Fixes
+
+## Overview
+During the development of the Python Wordle game, several bugs were encountered and subsequently addressed. This section documents some of these challenges and their resolutions, highlighting the continuous improvement of the game.
+
+### Encountered Bugs
+
+#### 1. Invalid Input Acceptance
+**Problem**: The game initially accepted inputs that were either not five letters long or not valid English words.
+**Solution**: Strengthened the validation in the `is_valid_guess` function to ensure that all inputs are exactly five letters and are contained in the list of valid words.
+```python
+# Improved is_valid_guess function
+def is_valid_guess(guess, valid_words):
+    return guess.isalpha() and len(guess) == 5 and guess in valid_words
+```
+#### 2. Incorrect Feedback for Repeated Letters
+**Problem**: The feedback system was providing inconsistent results when the secret word contained repeated letters.
+**Solution**: Adjusted the evaluate_guess function to handle repeated letters more accurately and ensure correct feedback.
+```python
+# Adjusted evaluate_guess function
+def evaluate_guess(guess, secret_word):
+    feedback = []
+    for i in range(5):
+        if guess[i] == secret_word[i]:
+            feedback.append(f"(✓){guess[i]}")
+        else:
+            feedback.append(f"(✗) {guess[i]}" if guess[i] not in secret_word else f"(?) {guess[i]}")
+    return ' '.join(feedback)
+```
+#### 3. Game Crash on Missing Word Lists
+**Problem**: The game was crashing when the word list files were missing or not loaded correctly.
+**Solution**: Implemented an error check in the load_dictionary function to safely terminate the game and display a clear error message if files are missing or unreadable.
+```python
+# Error handling in load_dictionary
+def load_dictionary(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            words = [line.strip().lower() for line in file if line.strip()]
+        return words
+    except FileNotFoundError:
+        print(f"Error: The file {file_path} was not found.")
+        return []
+```
+
 # Deployment
 
 ## Heroku Deployment
