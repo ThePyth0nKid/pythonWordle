@@ -15,6 +15,21 @@ def load_dictionary(file_path):
         return []
 
 
+def display_welcome_message():
+    """
+    Displays a welcome message and explains the rules of the game.
+    """
+    print("Welcome to Python Wordle!")
+    print("Rules of the Game:")
+    print("1. You have 6 attempts to guess a 5-letter word.")
+    print("2. Each guess must be a valid 5-letter English word.")
+    print("3. After each guess, you will receive feedback:")
+    print("   - (✓): Correct letter in the correct position.")
+    print("   - (?): Correct letter in the wrong position.")
+    print("   - (✗): Incorrect letter.")
+    print("Try to guess the word in as few attempts as possible. Good luck!\n")
+
+
 def is_valid_guess(guess, valid_words):
     """
     Checks if the guess is valid.
@@ -68,6 +83,7 @@ def main():
     valid_words = load_dictionary("valid_words.txt")
     answer_words = load_dictionary("answer_words.txt")
     if valid_words and answer_words:
+        display_welcome_message()  # Display the welcome message
         play_wordle(valid_words, answer_words)
     else:
         print("Game cannot start without word lists.")
