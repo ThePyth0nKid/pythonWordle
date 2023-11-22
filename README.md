@@ -118,6 +118,25 @@ def main():
     else:
         print("Game cannot start without word lists.")
 ```
+# Deployment
+
+## Heroku Deployment
+This Python Wordle game is deployed on Heroku, making it accessible to anyone with an internet connection. Deploying on Heroku offers a simple and effective way to host Python applications and make them available to a wide audience.
+
+### Accessing the Game
+To play the game, simply click on the following link: [Play Python Wordle on Heroku](https://your-heroku-app-link.com)
+
+This link will take you directly to the game hosted on Heroku. There's no need to install anything; just click the link and start playing!
+
+### How It's Deployed
+The game was deployed on Heroku by following these steps:
+1. Create a `Procfile` and `requirements.txt` to specify the Python dependencies and entry point for the application.
+2. Set up a Heroku app through the Heroku dashboard or Heroku CLI.
+3. Link the Heroku app to the GitHub repository containing the project.
+4. Deploy the application directly from the repository.
+
+Heroku automatically detects the necessary buildpacks and environment settings to host the Python application. Once deployed, the application is accessible via the provided URL.
+
 ### Installation
 Clone the repository or download the files and store them in your preferred directory.
 
